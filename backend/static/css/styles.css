@@ -1,0 +1,99 @@
+/* IDRA Grievance Management System Styles */
+
+:root {
+    --primary-50: #eff6ff;
+    --primary-100: #dbeafe;
+    --primary-500: #3b82f6;
+    --primary-600: #2563eb;
+    --primary-700: #1d4ed8;
+    --primary-900: #1e3a8a;
+}
+
+.idra-gradient {
+    background: linear-gradient(135deg, var(--primary-500), var(--primary-700));
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(10px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* Custom button styles */
+.btn-primary {
+    background-color: var(--primary-600);
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-700);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-600);
+    border: 2px solid var(--primary-600);
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-600);
+    color: white;
+}
+
+/* Card styles */
+.card {
+    background: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+}
+
+.card:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    transition: all 0.2s ease;
+}
+
+/* Status badges */
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.status-submitted { background-color: #3b82f6; color: white; }
+.status-under-review { background-color: #f59e0b; color: white; }
+.status-in-progress { background-color: #8b5cf6; color: white; }
+.status-resolved { background-color: #10b981; color: white; }
+.status-open { background-color: #6b7280; color: white; }
+
+/* Colorful tile enhancements */
+.tile-blue { border-left: 4px solid #3b82f6; }
+.tile-green { border-left: 4px solid #10b981; }
+.tile-amber { border-left: 4px solid #f59e0b; }
+.tile-purple { border-left: 4px solid #8b5cf6; }
+.tile-orange { border-left: 4px solid #ea580c; }

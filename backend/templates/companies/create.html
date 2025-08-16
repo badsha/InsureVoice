@@ -1,0 +1,197 @@
+{% extends 'base.html' %}
+
+{% block title %}Register Insurance Company - IDRA GMS{% endblock %}
+
+{% block content %}
+<div class="fade-in">
+    <!-- Header Section -->
+    <div class="bg-gradient-to-r from-purple-500 to-indigo-600 text-white rounded-lg p-6 mb-8">
+        <div class="text-center">
+            <h1 class="text-3xl font-bold mb-2">Register New Insurance Company</h1>
+            <p class="text-purple-100">Add a new licensed insurance provider to the IDRA registry</p>
+        </div>
+    </div>
+
+    <!-- Registration Form -->
+    <div class="max-w-4xl mx-auto">
+        <form method="post" class="space-y-8">
+            {% csrf_token %}
+            
+            <!-- Company Information -->
+            <div class="bg-white border-l-4 border-purple-500 rounded-lg p-6">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Company Information</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-purple-700 mb-2">
+                            Company Name *
+                        </label>
+                        <input type="text" 
+                               id="name" 
+                               name="name"
+                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" 
+                               required>
+                    </div>
+                    <div>
+                        <label for="license_number" class="block text-sm font-medium text-purple-700 mb-2">
+                            License Number *
+                        </label>
+                        <input type="text" 
+                               id="license_number" 
+                               name="license_number"
+                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" 
+                               required>
+                    </div>
+                    <div>
+                        <label for="established_year" class="block text-sm font-medium text-purple-700 mb-2">
+                            Established Year *
+                        </label>
+                        <input type="number" 
+                               id="established_year" 
+                               name="established_year"
+                               min="1900" 
+                               max="2025"
+                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" 
+                               required>
+                    </div>
+                    <div>
+                        <label for="website" class="block text-sm font-medium text-purple-700 mb-2">
+                            Website
+                        </label>
+                        <input type="url" 
+                               id="website" 
+                               name="website"
+                               placeholder="https://company.com"
+                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="bg-white border-l-4 border-blue-500 rounded-lg p-6">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Contact Information</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-blue-700 mb-2">
+                            Email Address *
+                        </label>
+                        <input type="email" 
+                               id="email" 
+                               name="email"
+                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                               required>
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-blue-700 mb-2">
+                            Phone Number *
+                        </label>
+                        <input type="tel" 
+                               id="phone" 
+                               name="phone"
+                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                               required>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <label for="address" class="block text-sm font-medium text-blue-700 mb-2">
+                        Address *
+                    </label>
+                    <textarea id="address" 
+                              name="address"
+                              rows="3"
+                              class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                              required></textarea>
+                </div>
+            </div>
+
+            <!-- Registration Details -->
+            <div class="bg-white border-l-4 border-green-500 rounded-lg p-6">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Registration Details</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="registration_date" class="block text-sm font-medium text-green-700 mb-2">
+                            Registration Date *
+                        </label>
+                        <input type="date" 
+                               id="registration_date" 
+                               name="registration_date"
+                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" 
+                               required>
+                    </div>
+                    <div>
+                        <label for="license_expiry_date" class="block text-sm font-medium text-green-700 mb-2">
+                            License Expiry Date *
+                        </label>
+                        <input type="date" 
+                               id="license_expiry_date" 
+                               name="license_expiry_date"
+                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" 
+                               required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Financial Information -->
+            <div class="bg-white border-l-4 border-yellow-500 rounded-lg p-6">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Financial Information</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="authorized_capital" class="block text-sm font-medium text-yellow-700 mb-2">
+                            Authorized Capital (BDT)
+                        </label>
+                        <input type="number" 
+                               id="authorized_capital" 
+                               name="authorized_capital"
+                               step="0.01"
+                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                    </div>
+                    <div>
+                        <label for="paid_up_capital" class="block text-sm font-medium text-yellow-700 mb-2">
+                            Paid-up Capital (BDT)
+                        </label>
+                        <input type="number" 
+                               id="paid_up_capital" 
+                               name="paid_up_capital"
+                               step="0.01"
+                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit Section -->
+            <div class="bg-white border-l-4 border-indigo-500 rounded-lg p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900">Register Company</h3>
+                        <p class="text-sm text-gray-600 mt-1">
+                            By registering this company, you confirm that all information provided is accurate and verified.
+                        </p>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="{% url 'companies:list' %}" 
+                           class="px-6 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors">
+                            Cancel
+                        </a>
+                        <button type="submit" 
+                                class="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors font-medium">
+                            Register Company
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Help Section -->
+    <div class="max-w-4xl mx-auto mt-8">
+        <div class="bg-amber-50 border-l-4 border-amber-500 rounded-lg p-6">
+            <h3 class="text-lg font-semibold text-amber-900 mb-2">Registration Requirements</h3>
+            <ul class="text-amber-800 text-sm space-y-1">
+                <li>• Company must have a valid insurance license from IDRA</li>
+                <li>• All contact information must be accurate and up-to-date</li>
+                <li>• Financial information will be used for regulatory reporting</li>
+                <li>• Company will be subject to IDRA oversight and regulations</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

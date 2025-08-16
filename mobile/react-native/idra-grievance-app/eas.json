@@ -1,0 +1,48 @@
+{
+  "cli": {
+    "version": ">= 5.0.0"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "ios": {
+        "resourceClass": "m1-medium"
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "channel": "preview",
+      "ios": {
+        "resourceClass": "m1-medium"
+      }
+    },
+    "production": {
+      "channel": "production",
+      "env": {
+        "API_BASE_URL": "https://your-repl-domain.replit.app/api"
+      },
+      "ios": {
+        "resourceClass": "m1-medium",
+        "bundleIdentifier": "bd.gov.idra.grievance"
+      },
+      "android": {
+        "buildType": "apk",
+        "package": "bd.gov.idra.grievance"
+      }
+    }
+  },
+  "submit": {
+    "production": {
+      "ios": {
+        "appleId": "developer@idra.gov.bd",
+        "ascAppId": "XXXXXXXXXX",
+        "appleTeamId": "XXXXXXXXX"
+      },
+      "android": {
+        "serviceAccountKeyPath": "./google-service-account.json",
+        "track": "production"
+      }
+    }
+  }
+}

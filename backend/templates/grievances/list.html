@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+
+{% block title %}My Grievances - IDRA GMS{% endblock %}
+
+{% block content %}
+<div class="fade-in">
+    <!-- Header Section -->
+    <div class="bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg p-4 sm:p-6 mb-8">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between mobile-stack">
+            <div class="mb-4 sm:mb-0 text-center sm:text-left">
+                <h1 class="text-2xl sm:text-3xl font-bold mb-2">
+                    {% if user_role == 'policyholder' %}
+                        My Grievances
+                    {% else %}
+                        All Grievances
+                    {% endif %}
+                </h1>
+                <p class="text-purple-100">Manage and track your submitted grievances</p>
+            </div>
+            {% if user_role == 'policyholder' %}
+            <a href="{% url 'grievances:create' %}" 
+               class="bg-white text-purple-600 px-4 sm:px-6 py-2 rounded-lg hover:bg-gray-100 transition-colors font-medium text-center btn-mobile-full">
+                Submit New Grievance
+            </a>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Grievances Grid -->
+    {% if grievances %}
+    <div class="grid gap-6">
+        {% for grievance in grievances %}
+        <div class="bg-white border-l-4 
+            {% if grievance.status == 'submitted' %}border-blue-500
+            {% elif grievance.status == 'under_review' %}border-amber-500
+            {% elif grievance.status == 'in_progress' %}border-purple-500
+            {% elif grievance.status == 'resolved' %}border-green-500
+            {% else %}border-gray-500{% endif %} 
+            rounded-lg p-6 hover:shadow-md transition-all">
+            
+            <div class="flex flex-col sm:flex-row sm:items-start justify-between mb-4 mobile-stack">
+                <div class="flex-1 mb-4 sm:mb-0">
+                    <h3 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">{{ grievance.title }}</h3>
+                    <p class="text-gray-600 mb-2 text-sm sm:text-base">{{ grievance.description|truncatechars:150 }}</p>
+                    <div class="flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-gray-500">
+                        <span>ID: {{ grievance.grievance_id }}</span>
+                        <span>{{ grievance.category|title }}</span>
+                        <span>{{ grievance.created_at|date:"M d, Y" }}</span>
+                        {% if user_role != 'policyholder' %}
+                        <span>By: {{ grievance.complainant_name }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="text-center sm:text-right sm:ml-6">
+                    <span class="status-badge status-{{ grievance.status }} mb-2 inline-block">
+                        {{ grievance.get_status_display }}
+                    </span>
+                    <p class="text-xs sm:text-sm font-medium 
+                        {% if grievance.priority == 'high' %}text-red-600
+                        {% elif grievance.priority == 'medium' %}text-amber-600
+                        {% else %}text-green-600{% endif %}">
+                        {{ grievance.priority|upper }} PRIORITY
+                    </p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-4 text-xs sm:text-sm mobile-grid-1">
+                {% if grievance.policy_number %}
+                <div>
+                    <span class="font-medium text-gray-700">Policy:</span>
+                    <span class="text-gray-600">{{ grievance.policy_number }}</span>
+                </div>
+                {% endif %}
+                {% if grievance.insurance_company %}
+                <div>
+                    <span class="font-medium text-gray-700">Company:</span>
+                    <span class="text-gray-600">{{ grievance.insurance_company.name }}</span>
+                </div>
+                {% endif %}
+                {% if grievance.claim_amount %}
+                <div>
+                    <span class="font-medium text-gray-700">Amount:</span>
+                    <span class="text-gray-600">৳{{ grievance.claim_amount|floatformat:2 }}</span>
+                </div>
+                {% endif %}
+            </div>
+            
+            <div class="flex items-center justify-between mt-4 pt-4 border-t border-gray-200">
+                <div class="text-sm text-gray-500">
+                    Last updated: {{ grievance.updated_at|date:"M d, Y H:i" }}
+                </div>
+                <div class="flex space-x-2">
+                    <a href="{% url 'grievances:detail' pk=grievance.pk %}" 
+                       class="px-3 py-1 bg-blue-100 text-blue-700 rounded hover:bg-blue-200 transition-colors text-sm font-medium">
+                        View Details
+                    </a>
+                    {% if user_role != 'policyholder' %}
+                    <a href="{% url 'grievances:detail' pk=grievance.pk %}" 
+                       class="px-3 py-1 bg-purple-100 text-purple-700 rounded hover:bg-purple-200 transition-colors text-sm font-medium">
+                        Manage
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <!-- Pagination would go here if needed -->
+    
+    {% else %}
+    <!-- Empty State -->
+    <div class="text-center py-12">
+        <div class="bg-white border-l-4 border-gray-300 rounded-lg p-8 max-w-md mx-auto">
+            <svg class="mx-auto h-16 w-16 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">No Grievances Found</h3>
+            <p class="text-gray-600 mb-6">
+                {% if user_role == 'policyholder' %}
+                You haven't submitted any grievances yet.
+                {% else %}
+                No grievances have been submitted yet.
+                {% endif %}
+            </p>
+            {% if user_role == 'policyholder' %}
+            <a href="{% url 'grievances:create' %}" 
+               class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors font-medium">
+                Submit Your First Grievance
+            </a>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

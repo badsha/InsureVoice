@@ -1,0 +1,117 @@
+Government Software License
+
+Copyright (c) 2025 Insurance Development and Regulatory Authority (IDRA)
+Government of the People's Republic of Bangladesh
+
+PROPRIETARY SOFTWARE LICENSE AGREEMENT
+
+This software ("Software") is the property of the Insurance Development and 
+Regulatory Authority (IDRA) of Bangladesh, a regulatory body under the Ministry 
+of Finance, Government of the People's Republic of Bangladesh.
+
+TERMS AND CONDITIONS:
+
+1. OWNERSHIP
+   This Software is proprietary to IDRA and is protected by copyright laws
+   and international treaty provisions. All rights, title, and interest in
+   and to the Software remain with IDRA.
+
+2. PERMITTED USE
+   This Software is developed for official use by:
+   - Insurance Development and Regulatory Authority (IDRA)
+   - Licensed insurance companies in Bangladesh
+   - Insurance policyholders and beneficiaries
+   - Authorized government agencies and officials
+
+3. RESTRICTIONS
+   You may NOT:
+   - Reverse engineer, decompile, or disassemble the Software
+   - Remove or alter any proprietary notices or labels
+   - Use the Software for commercial purposes outside its intended scope
+   - Distribute, sublicense, or transfer the Software without authorization
+   - Access or use the Software in violation of applicable laws
+
+4. GOVERNMENT EXEMPTION
+   This Software may be subject to government regulations and may be exempt
+   from certain intellectual property restrictions under Bangladesh law for
+   government use and public benefit.
+
+5. DATA PROTECTION
+   This Software handles sensitive personal and financial information.
+   Users must comply with:
+   - Bangladesh Data Protection regulations
+   - Insurance regulatory requirements
+   - Government information security standards
+   - International data protection best practices
+
+6. SECURITY COMPLIANCE
+   Users of this Software must maintain appropriate security measures
+   including but not limited to:
+   - Secure authentication and authorization
+   - Regular security updates and patches
+   - Proper data encryption and protection
+   - Compliance with government security standards
+
+7. LIMITATION OF LIABILITY
+   IDRA shall not be liable for any damages arising from the use or
+   inability to use this Software, including but not limited to direct,
+   indirect, incidental, or consequential damages.
+
+8. TERMINATION
+   This license is effective until terminated by IDRA. IDRA may terminate
+   this license at any time if you fail to comply with any term or condition.
+
+9. GOVERNING LAW
+   This license shall be governed by and construed in accordance with the
+   laws of the People's Republic of Bangladesh.
+
+10. CONTACT INFORMATION
+    For licensing inquiries, technical support, or legal questions:
+    
+    Insurance Development and Regulatory Authority (IDRA)
+    IDRA Bhaban, Motijheel
+    Dhaka-1000, Bangladesh
+    
+    Email: legal@idra.gov.bd
+    Phone: +880-2-XXXXXXX
+    Website: https://idra.gov.bd
+
+By using this Software, you acknowledge that you have read this license
+agreement and agree to be bound by its terms and conditions.
+
+---
+
+GOVERNMENT AUTHORIZATION:
+
+This Software is developed under the authority of:
+- Insurance Act 2010 (Act No. 37 of 2010)
+- Insurance Development and Regulatory Authority Act 2010
+- Digital Security Act 2018
+- Government Information Technology Policy
+
+Authorized for official use by the Government of Bangladesh and licensed
+entities under IDRA supervision.
+
+---
+
+THIRD-PARTY COMPONENTS:
+
+This Software may include third-party open source components which are
+subject to their respective licenses:
+
+- Django Framework (BSD License)
+- PostgreSQL Database (PostgreSQL License)
+- React Native (MIT License)
+- Expo Platform (MIT License)
+- Other components as listed in package.json and requirements.txt
+
+The use of third-party components does not affect the proprietary nature
+of the overall Software and its specific implementation for IDRA.
+
+---
+
+Last Updated: August 12, 2025
+Version: 1.0.0
+
+This license is subject to change at the discretion of IDRA to comply with
+evolving legal, regulatory, and security requirements.

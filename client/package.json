@@ -1,0 +1,29 @@
+{
+  "name": "idra-gms-frontend",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "IDRA Grievance Management System - React Frontend",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 6000",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "@tanstack/react-query": "^4.0.0",
+    "axios": "^1.6.0",
+    "react-router-dom": "^6.8.0",
+    "lucide-react": "^0.292.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "@vitejs/plugin-react": "^4.1.1",
+    "vite": "^5.0.0",
+    "typescript": "^5.2.2",
+    "tailwindcss": "^3.3.6",
+    "postcss": "^8.4.32",
+    "autoprefixer": "^10.4.16"
+  }
+}

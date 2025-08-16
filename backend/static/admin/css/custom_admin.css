@@ -1,0 +1,465 @@
+/* Custom IDRA Admin Theme - Consistent Color Scheme */
+
+/* Override Django admin colors for consistency */
+:root {
+    --primary-color: #3b82f6;      /* Primary blue */
+    --primary-dark: #1e40af;       /* Darker blue */
+    --accent-color: #06b6d4;       /* Cyan accent */
+    --success-color: #10b981;      /* Green for success */
+    --warning-color: #f59e0b;      /* Amber for warnings */
+    --danger-color: #ef4444;       /* Red for danger */
+    --dark-bg: #1f2937;           /* Dark background */
+    --darker-bg: #111827;         /* Darker background */
+}
+
+/* Header styling - consistent with main site */
+#header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    border-bottom: 3px solid var(--primary-dark);
+}
+
+#header h1, #header h1 a {
+    color: white;
+    font-weight: 600;
+}
+
+#header .user-tools a {
+    color: rgba(255, 255, 255, 0.9);
+    border-radius: 6px;
+    padding: 6px 12px;
+    transition: background-color 0.2s;
+}
+
+#header .user-tools a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* Module headers - consistent blue theme */
+.module h2, .module caption {
+    background: var(--primary-color) !important;
+    color: white !important;
+    border-radius: 8px 8px 0 0;
+    font-weight: 500;
+}
+
+/* Table styling */
+.results table {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.results th {
+    background: var(--primary-dark) !important;
+    color: white !important;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.results tr:nth-child(even) {
+    background: rgba(59, 130, 246, 0.05);
+}
+
+.results tr:hover {
+    background: rgba(59, 130, 246, 0.1);
+}
+
+/* Action buttons - consistent color scheme */
+.addlink, .add-row a {
+    background: var(--success-color) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 6px !important;
+    padding: 8px 16px !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+}
+
+.addlink:hover, .add-row a:hover {
+    background: #059669 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
+}
+
+.changelink {
+    background: var(--warning-color) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 6px !important;
+    padding: 8px 16px !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+}
+
+.changelink:hover {
+    background: #d97706 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(245, 158, 11, 0.3);
+}
+
+.deletelink {
+    background: var(--danger-color) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 6px !important;
+    padding: 8px 16px !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+}
+
+.deletelink:hover {
+    background: #dc2626 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(239, 68, 68, 0.3);
+}
+
+/* Navigation styling */
+.breadcrumbs {
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+}
+
+.breadcrumbs a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.breadcrumbs a:hover {
+    color: var(--primary-dark);
+}
+
+/* Form styling */
+.form-row {
+    border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.form-row:last-child {
+    border-bottom: none;
+}
+
+/* Submit buttons */
+.default, input[type="submit"] {
+    background: var(--primary-color) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 6px !important;
+    padding: 12px 24px !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+}
+
+.default:hover, input[type="submit"]:hover {
+    background: var(--primary-dark) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+}
+
+/* Dashboard styling */
+.dashboard .module {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.dashboard .module table {
+    margin: 0;
+}
+
+/* Recent actions styling */
+#recent-actions-module h2 {
+    background: var(--accent-color) !important;
+}
+
+#recent-actions-module .actionlist li {
+    border-bottom: 1px solid rgba(6, 182, 212, 0.1);
+    padding: 12px 16px;
+}
+
+#recent-actions-module .actionlist li:hover {
+    background: rgba(6, 182, 212, 0.05);
+}
+
+/* Object tools consistency */
+.object-tools {
+    margin-bottom: 20px;
+}
+
+.object-tools li {
+    margin-right: 10px;
+}
+
+.object-tools a {
+    background: var(--success-color) !important;
+    color: white !important;
+    border-radius: 6px !important;
+    padding: 10px 20px !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+}
+
+.object-tools a:hover {
+    background: #059669 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
+}
+
+/* Status indicators */
+.yes, .true {
+    color: var(--success-color) !important;
+    font-weight: 600;
+}
+
+.no, .false {
+    color: var(--danger-color) !important;
+    font-weight: 600;
+}
+
+/* Responsive Design - Mobile First Approach */
+
+/* Mobile phones (up to 480px) */
+@media (max-width: 480px) {
+    /* Header adjustments */
+    #header {
+        padding: 10px !important;
+    }
+    
+    #header h1 {
+        font-size: 18px !important;
+    }
+    
+    #header .user-tools {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    #header .user-tools a {
+        padding: 6px 10px !important;
+        font-size: 12px !important;
+        text-align: center;
+    }
+    
+    /* Branding section mobile layout */
+    .branding-container {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 15px !important;
+    }
+    
+    .branding-buttons {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+        width: 100% !important;
+    }
+    
+    .branding-buttons a {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        justify-content: center !important;
+    }
+    
+    /* Table responsiveness */
+    .results {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .results table {
+        min-width: 600px;
+        font-size: 14px;
+    }
+    
+    .results th, .results td {
+        padding: 8px 4px !important;
+        font-size: 12px !important;
+    }
+    
+    /* Action buttons mobile */
+    .addlink, .changelink, .deletelink {
+        padding: 6px 10px !important;
+        font-size: 12px !important;
+        margin: 2px !important;
+        display: inline-block;
+        min-width: 60px;
+        text-align: center;
+    }
+    
+    /* Object tools mobile */
+    .object-tools {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 15px;
+    }
+    
+    .object-tools li {
+        flex: 1;
+        margin: 0;
+    }
+    
+    .object-tools a {
+        width: 100% !important;
+        padding: 8px 12px !important;
+        font-size: 12px !important;
+        text-align: center !important;
+        display: block !important;
+    }
+    
+    /* Form adjustments */
+    .form-row {
+        padding: 8px !important;
+    }
+    
+    .form-row label {
+        font-size: 14px !important;
+        margin-bottom: 5px !important;
+        display: block !important;
+    }
+    
+    /* Dashboard modules */
+    .dashboard .module {
+        margin-bottom: 15px;
+    }
+    
+    /* Breadcrumbs mobile */
+    .breadcrumbs {
+        padding: 8px 12px !important;
+        font-size: 12px !important;
+    }
+    
+    /* Navigation mobile */
+    #nav-sidebar {
+        width: 100% !important;
+        position: relative !important;
+    }
+}
+
+/* Tablet portrait (481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    /* Header tablet layout */
+    #header {
+        padding: 12px 16px !important;
+    }
+    
+    #header h1 {
+        font-size: 20px !important;
+    }
+    
+    #header .user-tools a {
+        padding: 6px 12px !important;
+        font-size: 13px !important;
+    }
+    
+    /* Branding responsive layout */
+    .branding-container {
+        flex-direction: row !important;
+        align-items: center !important;
+    }
+    
+    .branding-buttons {
+        display: flex !important;
+        gap: 10px !important;
+    }
+    
+    /* Table tablet view */
+    .results table {
+        font-size: 14px;
+    }
+    
+    .results th, .results td {
+        padding: 10px 6px !important;
+        font-size: 13px !important;
+    }
+    
+    /* Action buttons tablet */
+    .addlink, .changelink, .deletelink {
+        padding: 6px 12px !important;
+        font-size: 13px !important;
+        margin: 2px !important;
+    }
+    
+    /* Object tools tablet */
+    .object-tools {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .object-tools li {
+        margin: 0;
+    }
+    
+    .object-tools a {
+        padding: 8px 16px !important;
+        font-size: 13px !important;
+    }
+    
+    /* Dashboard tablet layout */
+    .dashboard .module {
+        margin-bottom: 18px;
+    }
+}
+
+/* Tablet landscape and small desktop (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Standard tablet landscape view */
+    .results th, .results td {
+        padding: 12px 8px !important;
+        font-size: 14px !important;
+    }
+    
+    .addlink, .changelink, .deletelink {
+        padding: 8px 14px !important;
+        font-size: 14px !important;
+    }
+    
+    .object-tools a {
+        padding: 10px 18px !important;
+        font-size: 14px !important;
+    }
+}
+
+/* Large screens (1025px and up) */
+@media (min-width: 1025px) {
+    /* Enhanced spacing for large screens */
+    .results th, .results td {
+        padding: 14px 10px !important;
+    }
+    
+    .dashboard .module {
+        margin-bottom: 25px;
+    }
+    
+    /* Better button spacing */
+    .addlink, .changelink, .deletelink {
+        margin: 0 4px !important;
+    }
+}
+
+/* Ultra-wide screens (1440px and up) */
+@media (min-width: 1440px) {
+    /* Optimize for very large screens */
+    #content {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+    
+    .results table {
+        font-size: 15px;
+    }
+    
+    .results th, .results td {
+        padding: 16px 12px !important;
+    }
+}

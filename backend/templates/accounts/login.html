@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{% block title %}Login - IDRA GMS{% endblock %}
+
+{% block content %}
+<!-- Header with Logo -->
+<header class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 bg-white bg-opacity-20 rounded-lg flex items-center justify-center">
+                <span class="text-white font-bold text-xl">I</span>
+            </div>
+            <div>
+                <h1 class="text-xl font-bold text-white">IDRA</h1>
+                <p class="text-xs text-blue-100">Grievance Management</p>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md w-full space-y-8">
+        <div class="text-center">
+            <h2 class="mt-6 text-3xl font-extrabold text-gray-900">
+                Sign in to your account
+            </h2>
+            <p class="mt-2 text-sm text-gray-600">
+                IDRA Grievance Management System
+            </p>
+        </div>
+        
+        <div class="bg-white py-8 px-6 shadow-lg rounded-lg">
+            <form class="space-y-6" method="post">
+                {% csrf_token %}
+                
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">
+                        Email address
+                    </label>
+                    <div class="mt-1">
+                        <input id="email" name="email" type="email" autocomplete="email" required 
+                               class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                               placeholder="Enter your email">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700">
+                        Password
+                    </label>
+                    <div class="mt-1">
+                        <input id="password" name="password" type="password" autocomplete="current-password" required 
+                               class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                               placeholder="Enter your password">
+                    </div>
+                </div>
+
+                <div>
+                    <button type="submit" 
+                            class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        Sign in
+                    </button>
+                </div>
+            </form>
+            
+            <!-- Demo Users Tiles -->
+            <div class="mt-8 pt-6 border-t border-gray-200">
+                <h3 class="text-lg font-medium text-gray-900 mb-4 text-center sm:text-left">Demo Users</h3>
+                <div class="grid gap-3">
+                    <button onclick="quickLogin('alice@example.com', 'demo123')" 
+                            class="w-full text-left p-4 bg-gradient-to-r from-green-50 to-green-100 hover:from-green-100 hover:to-green-200 rounded-lg border-l-4 border-green-500 transition-all hover:shadow-md">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="font-medium text-gray-900">Alice Johnson</div>
+                                <div class="text-sm text-gray-600">alice@example.com</div>
+                            </div>
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-500 text-white">
+                                Policyholder
+                            </span>
+                        </div>
+                    </button>
+                    
+                    <button onclick="quickLogin('bob@dhakainsurance.com', 'demo123')" 
+                            class="w-full text-left p-4 bg-gradient-to-r from-purple-50 to-purple-100 hover:from-purple-100 hover:to-purple-200 rounded-lg border-l-4 border-purple-500 transition-all hover:shadow-md">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="font-medium text-gray-900">Bob Smith</div>
+                                <div class="text-sm text-gray-600">bob@dhakainsurance.com</div>
+                            </div>
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-500 text-white">
+                                Company
+                            </span>
+                        </div>
+                    </button>
+                    
+                    <button onclick="quickLogin('david@idra.gov.bd', 'demo123')" 
+                            class="w-full text-left p-4 bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-lg border-l-4 border-blue-500 transition-all hover:shadow-md">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="font-medium text-gray-900">David Wilson</div>
+                                <div class="text-sm text-gray-600">david@idra.gov.bd</div>
+                            </div>
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-500 text-white">
+                                IDRA Admin
+                            </span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center">
+            <a href="{% url 'landing' %}" class="text-blue-600 hover:text-blue-500 text-sm font-medium">
+                ← Back to Home
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+function quickLogin(email, password) {
+    document.getElementById('email').value = email;
+    document.getElementById('password').value = password;
+    document.querySelector('form').submit();
+}
+</script>
+{% endblock %}

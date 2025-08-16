@@ -1,0 +1,48 @@
+{% extends "admin/base.html" %}
+{% load i18n static %}
+
+{% block extrastyle %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/custom_admin.css' %}">
+{% endblock %}
+
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block branding %}
+<div class="branding-container" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background: linear-gradient(90deg, #3b82f6 0%, #6366f1 100%); margin-bottom: 20px;">
+    <div>
+        <h1 id="site-name" style="margin: 0; color: white; font-size: 24px; font-weight: bold;">
+            <a href="{% url 'admin:index' %}" style="color: white; text-decoration: none;">
+                IDRA GMS Admin
+            </a>
+        </h1>
+        <p style="margin: 0; color: rgba(255,255,255,0.8); font-size: 14px;">
+            Insurance Development and Regulatory Authority
+        </p>
+    </div>
+    <div class="branding-buttons">
+        <a href="{% url 'landing' %}" 
+           style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.2); color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: 500; transition: background-color 0.2s;"
+           onmouseover="this.style.backgroundColor='rgba(255,255,255,0.3)'"
+           onmouseout="this.style.backgroundColor='rgba(255,255,255,0.2)'">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+            </svg>
+            Back to Main Site
+        </a>
+        {% if user.is_authenticated %}
+        <a href="{% url 'dashboard' %}" 
+           style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.2); color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: 500; margin-left: 8px; transition: background-color 0.2s;"
+           onmouseover="this.style.backgroundColor='rgba(255,255,255,0.3)'"
+           onmouseout="this.style.backgroundColor='rgba(255,255,255,0.2)'">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+            </svg>
+            Dashboard
+        </a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
